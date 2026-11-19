@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard - B-TECH IT SOLUTION</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- Top Navigation -->
+    <nav class="bg-slate-900 text-white p-4 shadow-lg">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold"><i class="fas fa-tools mr-2"></i>Staff Dashboard</h1>
+            <a href="index.html" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded text-sm font-semibold transition">Log Out</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Billing Section -->
+        <div class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-lg font-bold mb-4 text-slate-800 border-b pb-2"><i class="fas fa-receipt mr-2 text-blue-600"></i>Quick Billing</h2>
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Customer Name</label>
+                    <input type="text" placeholder="Enter customer name" class="w-full mt-1 p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Service/Parts Amount (₹)</label>
+                    <input type="number" placeholder="Enter amount" class="w-full mt-1 p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 outline-none">
+                </div>
+                <button type="button" class="w-full bg-blue-600 text-white py-2 rounded font-semibold hover:bg-blue-700 transition shadow">Generate Invoice</button>
+            </form>
+        </div>
+
+        <!-- Inventory Status -->
+        <div class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-lg font-bold mb-4 text-slate-800 border-b pb-2"><i class="fas fa-boxes mr-2 text-amber-600"></i>Low Stock Alert</h2>
+            <ul class="divide-y divide-gray-200">
+                <li class="py-3 flex justify-between items-center">
+                    <span class="font-medium text-gray-800">SSD 256GB</span>
+                    <span class="bg-red-100 text-red-800 font-bold px-2 py-1 rounded text-xs">2 Left</span>
+                </li>
+                <li class="py-3 flex justify-between items-center">
+                    <span class="font-medium text-gray-800">Laptop Screens</span>
+                    <span class="bg-yellow-100 text-yellow-800 font-bold px-2 py-1 rounded text-xs">5 Left</span>
+                </li>
+                <li class="py-3 flex justify-between items-center">
+                    <span class="font-medium text-gray-800">Charging Ports</span>
+                    <span class="bg-green-100 text-green-800 font-bold px-2 py-1 rounded text-xs">12 Left</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Order Tracking Management -->
+        <div class="bg-white p-6 rounded-lg shadow md:col-span-3">
+            <h2 class="text-lg font-bold mb-4 text-slate-800 border-b pb-2"><i class="fas fa-tasks mr-2 text-green-600"></i>Live Ticket Management</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full text-left text-sm text-gray-500">
+                    <thead class="bg-gray-50 text-gray-700 uppercase font-bold text-xs">
+                        <tr>
+                            <th class="p-3">Job ID</th>
+                            <th class="p-3">Customer</th>
+                            <th class="p-3">Device & Issue</th>
+                            <th class="p-3">Status</th>
+                            <th class="p-3">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-3 font-bold text-gray-900">BTC-101</td>
+                            <td class="p-3 font-medium text-gray-800">Rajesh Kumar</td>
+                            <td class="p-3 text-gray-600">HP Pavilion (Screen Broken)</td>
+                            <td class="p-3">
+                                <select class="bg-yellow-50 border border-yellow-300 text-yellow-800 text-xs font-bold rounded p-1 outline-none">
+                                    <option>Received</option>
+                                    <option selected>In Progress</option>
+                                    <option>Spare Parts Ordered</option>
+                                    <option>Ready</option>
+                                </select>
+                            </td>
+                            <td class="p-3"><button class="bg-blue-50 text-blue-600 hover:bg-blue-100 px-3 py-1 rounded font-semibold text-xs transition">Update</button></td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-3 font-bold text-gray-900">BTC-102</td>
+                            <td class="p-3 font-medium text-gray-800">Pooja Mishra</td>
+                            <td class="p-3 text-gray-600">Dell Inspiron (Motherboard)</td>
+                            <td class="p-3">
+                                <select class="bg-red-50 border border-red-300 text-red-800 text-xs font-bold rounded p-1 outline-none">
+                                    <option>Received</option>
+                                    <option>In Progress</option>
+                                    <option selected>Spare Parts Ordered</option>
+                                    <option>Ready</option>
+                                </select>
+                            </td>
+                            <td class="p-3"><button class="bg-blue-50 text-blue-600 hover:bg-blue-100 px-3 py-1 rounded font-semibold text-xs transition">Update</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
