@@ -62,7 +62,18 @@
             </div>
 
             <div class="flex items-center space-x-3">
-                <button onclick="switchMode('customer')" id="btn-customer" class="btn-theme px-4 py-2 rounded-full text-xs font-bold shadow">Customer Portal</button>
+            <button onclick="checkPassword()">Shop Staff Mode</button>
+<script>
+function checkPassword() {
+  let p = prompt("Enter Password:");
+  if (p === "1234") {
+    window.location.href = "STAFF_PAGE_URL";
+  } else {
+    alert("Wrong Password!");
+  }
+}
+</script>
+
                 <button onclick="switchMode('staff')" id="btn-staff" class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-full text-xs font-bold transition">Shop Staff Mode</button>
             </div>
         </div>
