@@ -1,1 +1,505 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B-TECH IT SOLUTION - Sales, Repair & Service Platform</title>
+    <!-- Tailwind CSS for UI -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .theme-corporate { --primary: #1E40AF; --secondary: #3B82F6; --dark: #1E293B; --light: #F8FAFC; --accent: #2563EB; }
+        .theme-cyber { --primary: #06B6D4; --secondary: #8B5CF6; --dark: #0F172A; --light: #000000; --accent: #38BDF8; }
+        .theme-emerald { --primary: #059669; --secondary: #10B981; --dark: #064E3B; --light: #ECFDF5; --accent: #34D399; }
+        .theme-amber { --primary: #D97706; --secondary: #F59E0B; --dark: #78350F; --light: #FFFBEB; --accent: #FBBF24; }
+        .theme-mono { --primary: #000000; --secondary: #4B5563; --dark: #111827; --light: #FFFFFF; --accent: #374151; }
+        .theme-royal { --primary: #4338CA; --secondary: #6366F1; --dark: #312E81; --light: #EEF2FF; --accent: #818CF8; }
+        
+        body { background-color: var(--light); color: var(--dark); font-family: 'Inter', sans-serif; transition: all 0.3s ease; }
+        .bg-primary-theme { background-color: var(--primary); }
+        .bg-secondary-theme { background-color: var(--secondary); }
+        .bg-dark-theme { background-color: var(--dark); }
+        .text-primary-theme { color: var(--primary); }
+        .border-primary-theme { border-color: var(--primary); }
+        .btn-theme { background-color: var(--primary); color: white; transition: 0.3s; }
+        .btn-theme:hover { background-color: var(--secondary); transform: translateY(-2px); }
+    </style>
+</head>
+<body class="theme-corporate">
+
+    <!-- Top Bar -->
+    <div class="bg-dark-theme text-white py-2 px-4 text-xs">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <span><i class="fa-solid fa-location-dot text-red-500 mr-1"></i> Main Road, Angul, Odisha</span>
+            <span><i class="fa-solid fa-phone mr-1"></i> +91 98614 74654</span>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 rounded-lg bg-primary-theme flex items-center justify-center text-white font-black text-xl shadow-lg">
+                    B
+                </div>
+                <div>
+                    <h1 class="font-black text-xl leading-none text-primary-theme">B-TECH</h1>
+                    <span class="text-[10px] tracking-widest uppercase font-bold text-gray-500">IT SOLUTION</span>
+                </div>
+            </div>
+            
+            <!-- Design Switcher -->
+            <div class="hidden md:flex items-center space-x-1 bg-gray-100 p-1 rounded-lg text-xs">
+                <span class="px-2 font-bold text-gray-400">Themes:</span>
+                <button onclick="setTheme('theme-corporate')" class="px-2 py-1 rounded bg-blue-600 text-white font-bold">Corporate</button>
+                <button onclick="setTheme('theme-cyber')" class="px-2 py-1 rounded bg-cyan-600 text-white font-bold">Cyber</button>
+                <button onclick="setTheme('theme-emerald')" class="px-2 py-1 rounded bg-emerald-600 text-white font-bold">Emerald</button>
+                <button onclick="setTheme('theme-amber')" class="px-2 py-1 rounded bg-amber-600 text-white font-bold">Amber</button>
+                <button onclick="setTheme('theme-mono')" class="px-2 py-1 rounded bg-gray-800 text-white font-bold">Mono</button>
+                <button onclick="setTheme('theme-royal')" class="px-2 py-1 rounded bg-indigo-600 text-white font-bold">Royal</button>
+            </div>
+
+            <div class="flex items-center space-x-3">
+                <button onclick="switchMode('customer')" id="btn-customer" class="btn-theme px-4 py-2 rounded-full text-xs font-bold shadow">Customer Portal</button>
+                <button onclick="switchMode('staff')" id="btn-staff" class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-full text-xs font-bold transition">Shop Staff Mode</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Theme Indicator Banner -->
+    <div id="theme-banner" class="bg-primary-theme text-white text-center py-1 text-xs font-semibold">
+        Current Theme: Corporate Blue | Click themes above to switch instantly across the platform!
+    </div>
+
+    <div class="max-w-7xl mx-auto p-4 md:p-6 space-y-8">
+
+        <!-- ==================== CUSTOMER VIEW ==================== -->
+        <div id="view-customer" class="space-y-8">
+            
+            <!-- Hero Section -->
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl text-white">
+                <div class="absolute inset-0 bg-dark-theme/80 z-10"></div>
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" class="absolute inset-0 w-full h-full object-cover" alt="IT Repair">
+                <div class="relative z-20 p-8 md:p-16 max-w-2xl space-y-4">
+                    <span class="bg-primary-theme text-white px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase">Angul's #1 Tech Hub</span>
+                    <h2 class="text-3xl md:text-5xl font-black leading-tight">Expert Computer Repair & Smart Solutions</h2>
+                    <p class="text-sm md:text-base text-gray-200">Fast chip-level repairing, genuine spare parts, and doorstep support for laptops, desktops, and printers.</p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <a href="#services" class="btn-theme px-6 py-3 rounded-xl font-bold text-sm shadow-lg flex items-center space-x-2">
+                            <i class="fa-solid fa-screwdriver-wrench"></i> <span>Explore Services</span>
+                        </a>
+                        <a href="#tracking" class="bg-white/10 hover:bg-white/20 backdrop-blur border border-white/30 text-white px-6 py-3 rounded-xl font-bold text-sm transition">
+                            <i class="fa-solid fa-magnifying-glass mr-2"></i>Track Repair Status
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid: Services Catalog & Booking -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Services List (2 Cols) -->
+                <div id="services" class="lg:col-span-2 space-y-6">
+                    <div class="flex justify-between items-center border-b border-gray-200 pb-4">
+                        <div>
+                            <h3 class="text-2xl font-black text-dark-theme flex items-center">
+                                <i class="fa-solid fa-list-check text-primary-theme mr-3"></i>Our Services & Spare Parts
+                            </h3>
+                            <p class="text-xs text-gray-500">Click 'Add to Cart' to order repairs or spare parts directly via WhatsApp</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="services-grid">
+                        <!-- Service Card 1 -->
+                        <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition space-y-3 flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start">
+                                    <span class="text-xs font-bold text-primary-theme bg-blue-50 px-2 py-0.5 rounded">Hardware</span>
+                                    <span class="text-lg font-black text-dark-theme">₹1,200</span>
+                                </div>
+                                <h4 class="font-bold text-base mt-2 text-dark-theme">Laptop Chip-Level Motherboard Repair</h4>
+                                <p class="text-xs text-gray-500 mt-1">Dead laptop charging or display issue fix with 3 months warranty.</p>
+                            </div>
+                            <button onclick="addToCart('Laptop Chip-Level Motherboard Repair', 1200)" class="w-full bg-gray-50 hover:bg-primary-theme hover:text-white border border-gray-200 text-xs font-bold py-2 rounded-xl transition flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-cart-plus"></i> <span>Add to WhatsApp Cart</span>
+                            </button>
+                        </div>
+
+                        <!-- Service Card 2 -->
+                        <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition space-y-3 flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start">
+                                    <span class="text-xs font-bold text-primary-theme bg-blue-50 px-2 py-0.5 rounded">Upgrade</span>
+                                    <span class="text-lg font-black text-dark-theme">₹2,800</span>
+                                </div>
+                                <h4 class="font-bold text-base mt-2 text-dark-theme">SSD Speed Boost Combo (256GB SSD + OS)</h4>
+                                <p class="text-xs text-gray-500 mt-1">Make your old slow laptop 10x faster with new SSD installation.</p>
+                            </div>
+                            <button onclick="addToCart('SSD Speed Boost Combo (256GB SSD + OS)', 2800)" class="w-full bg-gray-50 hover:bg-primary-theme hover:text-white border border-gray-200 text-xs font-bold py-2 rounded-xl transition flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-cart-plus"></i> <span>Add to WhatsApp Cart</span>
+                            </button>
+                        </div>
+
+                        <!-- Service Card 3 -->
+                        <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition space-y-3 flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start">
+                                    <span class="text-xs font-bold text-primary-theme bg-blue-50 px-2 py-0.5 rounded">Screen</span>
+                                    <span class="text-lg font-black text-dark-theme">₹3,500</span>
+                                </div>
+                                <h4 class="font-bold text-base mt-2 text-dark-theme">LED/LCD Screen Replacement</h4>
+                                <p class="text-xs text-gray-500 mt-1">Original display panels for Dell, HP, Lenovo, Acer with warranty.</p>
+                            </div>
+                            <button onclick="addToCart('LED/LCD Screen Replacement', 3500)" class="w-full bg-gray-50 hover:bg-primary-theme hover:text-white border border-gray-200 text-xs font-bold py-2 rounded-xl transition flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-cart-plus"></i> <span>Add to WhatsApp Cart</span>
+                            </button>
+                        </div>
+
+                        <!-- Service Card 4 -->
+                        <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition space-y-3 flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start">
+                                    <span class="text-xs font-bold text-primary-theme bg-blue-50 px-2 py-0.5 rounded">Printer</span>
+                                    <span class="text-lg font-black text-dark-theme">₹850</span>
+                                </div>
+                                <h4 class="font-bold text-base mt-2 text-dark-theme">Printer Servicing & Cartridge Refill</h4>
+                                <p class="text-xs text-gray-500 mt-1">Paper jam fix, head cleaning, and high-quality tonner refill.</p>
+                            </div>
+                            <button onclick="addToCart('Printer Servicing & Cartridge Refill', 850)" class="w-full bg-gray-50 hover:bg-primary-theme hover:text-white border border-gray-200 text-xs font-bold py-2 rounded-xl transition flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-cart-plus"></i> <span>Add to WhatsApp Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 3: Quick Booking & Cart -->
+                <div class="space-y-6">
+                    <!-- WhatsApp Cart Widget -->
+                    <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-lg space-y-4">
+                        <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+                            <h4 class="font-black text-base text-dark-theme flex items-center">
+                                <i class="fa-brands fa-whatsapp text-green-500 mr-2 text-xl"></i>Your Cart
+                            </h4>
+                            <span id="cart-count" class="bg-green-100 text-green-800 text-xs font-bold px-2 py-0.5 rounded-full">0 Items</span>
+                        </div>
+                        <div id="cart-items" class="text-xs text-gray-500 min-h-[80px] flex items-center justify-center">
+                            Cart is empty. Select services to order via WhatsApp.
+                        </div>
+                        <div class="border-t border-gray-100 pt-3 flex justify-between items-center text-sm font-bold">
+                            <span>Total Estimate:</span>
+                            <span id="cart-total" class="text-primary-theme">₹0</span>
+                        </div>
+                        <button onclick="checkoutWhatsApp()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-2xl text-xs shadow-md transition flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Book on WhatsApp (+91 98614 74654)</span>
+                        </button>
+                    </div>
+
+                    <!-- Direct Appointment Booking Form -->
+                    <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-lg space-y-4">
+                        <h4 class="font-black text-base text-dark-theme flex items-center">
+                            <i class="fa-solid fa-calendar-plus text-primary-theme mr-2"></i>Book Repair Visit
+                        </h4>
+                        <form id="booking-form" onsubmit="bookRepair(event)" class="space-y-3 text-xs">
+                            <div>
+                                <label class="block font-bold text-gray-700 mb-1">Customer Name *</label>
+                                <input type="text" id="b-name" required placeholder="Enter your name" class="w-full p-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-primary-theme">
+                            </div>
+                            <div>
+                                <label class="block font-bold text-gray-700 mb-1">Mobile Number *</label>
+                                <input type="tel" id="b-phone" required placeholder="WhatsApp number" class="w-full p-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-primary-theme">
+                            </div>
+                            <div>
+                                <label class="block font-bold text-gray-700 mb-1">Device & Issue *</label>
+                                <input type="text" id="b-device" required placeholder="e.g. HP Laptop Screen Broken" class="w-full p-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-primary-theme">
+                            </div>
+                            <button type="submit" class="btn-theme w-full py-2.5 rounded-xl font-bold shadow transition">
+                                Generate Job Ticket
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Status Tracking Section -->
+            <div id="tracking" class="bg-white p-8 rounded-3xl border border-gray-200 shadow-md space-y-6">
+                <div class="max-w-xl mx-auto text-center space-y-2">
+                    <span class="bg-blue-50 text-primary-theme text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Transparency Portal</span>
+                    <h3 class="text-2xl font-black text-dark-theme">Track Your Device Repair Status</h3>
+                    <p class="text-xs text-gray-500">Enter your Job ID (e.g. BTC-101) given at the time of submission.</p>
+                </div>
+
+                <div class="max-w-md mx-auto flex gap-2">
+                    <div class="relative flex-1">
+                        <i class="fa-solid fa-ticket absolute left-3.5 top-3.5 text-gray-400"></i>
+                        <input type="text" id="track-input" placeholder="Enter Job ID (e.g. BTC-101)" class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-primary-theme uppercase font-bold">
+                    </div>
+                    <button onclick="trackTicket()" class="btn-theme px-6 py-3 rounded-xl font-bold text-sm shadow transition">
+                        Track Now
+                    </button>
+                </div>
+
+                <!-- Tracking Result Display -->
+                <div id="tracking-result" class="max-w-2xl mx-auto pt-4 hidden">
+                    <div class="p-6 rounded-2xl bg-gray-50 border-2 border-primary-theme space-y-4">
+                        <div class="flex justify-between items-center border-b border-gray-200 pb-3">
+                            <div>
+                                <span class="text-[10px] uppercase font-bold text-gray-400">Job Ticket</span>
+                                <h4 id="res-jobid" class="text-lg font-black text-dark-theme">BTC-000</h4>
+                            </div>
+                            <span id="res-status-badge" class="px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-800">Received</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 text-xs">
+                            <div><span class="text-gray-400">Customer:</span><p id="res-name" class="font-bold text-dark-theme">User</p></div>
+                            <div><span class="text-gray-400">Device:</span><p id="res-device" class="font-bold text-dark-theme">Device</p></div>
+                        </div>
+                        <div>
+                            <span class="text-gray-400 text-xs">Current Progress:</span>
+                            <div class="w-full bg-gray-200 rounded-full h-3 mt-1 overflow-hidden">
+                                <div id="res-progress" class="bg-primary-theme h-full w-1/3 transition-all duration-500"></div>
+                            </div>
+                            <p id="res-status-text" class="text-xs font-bold text-primary-theme mt-2">Checking device condition...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- ==================== SHOP STAFF MODE ==================== -->
+        <div id="view-staff" class="bg-dark-theme text-white p-8 rounded-3xl shadow-2xl space-y-6 hidden border-2 border-primary-theme">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-700 pb-4 gap-4">
+                <div>
+                    <span class="bg-red-500 text-white text-[10px] font-black px-2 py-0.5 rounded uppercase tracking-widest">Restrictive Access</span>
+                    <h3 class="text-2xl font-black mt-1 flex items-center">
+                        <i class="fa-solid fa-screwdriver-wrench text-yellow-400 mr-2"></i>Staff Dashboard: Live Ticket Manager
+                    </h3>
+                    <p class="text-xs text-gray-400">Update repair phases. Changes immediately reflect on customer tracking portal.</p>
+                </div>
+                <button onclick="switchMode('customer')" class="bg-gray-800 hover:bg-gray-700 text-xs font-bold px-4 py-2 rounded-xl border border-gray-600 transition">
+                    <i class="fa-solid fa-arrow-right-from-bracket mr-2"></i>Exit Staff Mode
+                </button>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs">
+                    <thead class="bg-black/40 text-gray-400 uppercase text-[10px]">
+                        <tr>
+                            <th class="p-3">Job ID</th>
+                            <th class="p-3">Customer</th>
+                            <th class="p-3">Device & Issue</th>
+                            <th class="p-3">Status</th>
+                            <th class="p-3 text-right">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="staff-ticket-list" class="divide-y divide-gray-800">
+                        <!-- Dynamic Rows -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark-theme text-gray-400 text-xs py-8 mt-16 border-t border-gray-800 text-center space-y-2">
+        <p class="font-bold text-white text-sm">B-TECH IT SOLUTION</p>
+        <p>Main Road, Angul, Odisha | Contact: +91 98614 74654</p>
+        <p class="text-[10px] text-gray-600 pt-2">&copy; 2026 B-TECH IT SOLUTION. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript Platform Logic -->
+    <script>
+        // Initial Database of Tickets
+        let tickets = [
+            { id: 'BTC-101', name: 'Rajesh Kumar', phone: '9000000001', device: 'Dell Inspiron 15 (Dead)', status: 'Received', progress: 25 },
+            { id: 'BTC-102', name: 'Pooja Mishra', phone: '9000000002', device: 'HP Pavilion (Screen Broken)', status: 'Spare Parts Ordered', progress: 60 }
+        ];
+
+        let cart = [];
+        let currentMode = 'customer';
+
+        // Set Theme Function
+        function setTheme(themeName) {
+            document.body.className = themeName;
+            const themeMap = {
+                'theme-corporate': 'Corporate Blue',
+                'theme-cyber': 'Cyber Dark',
+                'theme-emerald': 'Emerald Hub',
+                'theme-amber': 'Amber Workshop',
+                'theme-mono': 'Minimal Mono',
+                'theme-royal': 'Royal Indigo'
+            };
+            document.getElementById('theme-banner').innerText = `Current Theme: ${themeMap[themeName]} | Click themes above to switch instantly across the platform!`;
+        }
+
+        // Switch View Mode
+        function switchMode(mode) {
+            currentMode = mode;
+            const custView = document.getElementById('view-customer');
+            const staffView = document.getElementById('view-staff');
+            const btnCust = document.getElementById('btn-customer');
+            const btnStaff = document.getElementById('btn-staff');
+
+            if (mode === 'staff') {
+                custView.classList.add('hidden');
+                staffView.classList.remove('hidden');
+                btnStaff.className = 'btn-theme px-4 py-2 rounded-full text-xs font-bold shadow transition';
+                btnCust.className = 'bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-full text-xs font-bold transition';
+                renderStaffTickets();
+            } else {
+                staffView.classList.add('hidden');
+                custView.classList.remove('hidden');
+                btnCust.className = 'btn-theme px-4 py-2 rounded-full text-xs font-bold shadow transition';
+                btnStaff.className = 'bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-full text-xs font-bold transition';
+            }
+        }
+
+        // Cart Management
+        function addToCart(itemName, price) {
+            cart.push({ name: itemName, price: price });
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const countEl = document.getElementById('cart-count');
+            const itemsEl = document.getElementById('cart-items');
+            const totalEl = document.getElementById('cart-total');
+
+            countEl.innerText = `${cart.length} Items`;
+            
+            if (cart.length === 0) {
+                itemsEl.innerText = 'Cart is empty. Select services to order via WhatsApp.';
+                totalEl.innerText = '₹0';
+                return;
+            }
+
+            let html = '<ul class="w-full space-y-1">';
+            let total = 0;
+            cart.forEach((item, index) => {
+                total += item.price;
+                html += `<li class="flex justify-between items-center py-1 border-b border-gray-100">
+                    <span>${item.name}</span>
+                    <span class="font-bold text-dark-theme">₹${item.price}</span>
+                </li>`;
+            });
+            html += '</ul>';
+            itemsEl.innerHTML = html;
+            totalEl.innerText = `₹${total}`;
+        }
+
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                alert('Add items to cart first!');
+                return;
+            }
+            let msg = 'Hello B-TECH IT SOLUTION, I want to book the following services:%0A';
+            cart.forEach(item => {
+                msg += `- ${item.name} (₹${item.price})%0A`;
+            });
+            let total = cart.reduce((sum, i) => sum + i.price, 0);
+            msg += `%0ATotal Estimate: ₹${total}`;
+            window.open(`https://wa.me/919861474654?text=${msg}`, '_blank');
+        }
+
+        // Booking New Repair Ticket
+        function bookRepair(e) {
+            e.preventDefault();
+            const name = document.getElementById('b-name').value;
+            const phone = document.getElementById('b-phone').value;
+            const device = document.getElementById('b-device').value;
+            const id = 'BTC-' + Math.floor(100 + Math.random() * 900);
+
+            const newTicket = { id, name, phone, device, status: 'Received', progress: 25 };
+            tickets.push(newTicket);
+
+            alert(`Ticket generated successfully! Your Job ID is ${id}. Use this to track status.`);
+            document.getElementById('booking-form').reset();
+            
+            if(currentMode === 'staff') renderStaffTickets();
+        }
+
+        // Track Ticket
+        function trackTicket() {
+            const query = document.getElementById('track-input').value.toUpperCase().trim();
+            const resultDiv = document.getElementById('tracking-result');
+            const ticket = tickets.find(t => t.id === query);
+
+            if (!ticket) {
+                alert('Job ID not found. Please check and try again.');
+                resultDiv.classList.add('hidden');
+                return;
+            }
+
+            document.getElementById('res-jobid').innerText = ticket.id;
+            document.getElementById('res-status-badge').innerText = ticket.status;
+            document.getElementById('res-name').innerText = ticket.name;
+            document.getElementById('res-device').innerText = ticket.device;
+            document.getElementById('res-progress').style.width = ticket.progress + '%';
+            document.getElementById('res-status-text').innerText = getStatusDescription(ticket.status);
+
+            resultDiv.classList.remove('hidden');
+        }
+
+        function getStatusDescription(status) {
+            switch(status) {
+                case 'Received': return 'Device received at Angul store. Inspection pending.';
+                case 'Diagnosed': return 'Issue identified. Cost estimation ready.';
+                case 'Spare Parts Ordered': return 'Waiting for authentic spare parts delivery.';
+                case 'Under Repair': return 'Technician is actively repairing your device.';
+                case 'Ready': return 'Repair completed! Ready for pickup or delivery.';
+                case 'Delivered': return 'Device handed over to customer.';
+                default: return '';
+            }
+        }
+
+        // Render Staff Dashboard
+        function renderStaffTickets() {
+            const tbody = document.getElementById('staff-ticket-list');
+            tbody.innerHTML = '';
+
+            tickets.forEach(ticket => {
+                const statuses = ['Received', 'Diagnosed', 'Spare Parts Ordered', 'Under Repair', 'Ready', 'Delivered'];
+                let optionsHtml = statuses.map(s => `<option value="${s}" ${ticket.status === s ? 'selected' : ''}>${s}</option>`).join('');
+
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="p-3 font-black text-yellow-400">${ticket.id}</td>
+                    <td class="p-3 font-bold">${ticket.name}</td>
+                    <td class="p-3">${ticket.device}</td>
+                    <td class="p-3">
+                        <select onchange="updateStatus('${ticket.id}', this.value)" class="bg-gray-800 text-white text-xs border border-gray-600 rounded p-1 font-bold">
+                            ${optionsHtml}
+                        </select>
+                    </td>
+                    <td class="p-3 text-right">
+                        <button onclick="deleteTicket('${ticket.id}')" class="text-red-400 hover:text-red-300 px-2 py-1 rounded text-xs"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function updateStatus(id, newStatus) {
+            const ticket = tickets.find(t => t.id === id);
+            if (ticket) {
+                ticket.status = newStatus;
+                const progressMap = { 'Received': 25, 'Diagnosed': 45, 'Spare Parts Ordered': 65, 'Under Repair': 85, 'Ready': 100, 'Delivered': 100 };
+                ticket.progress = progressMap[newStatus];
+                alert(`Ticket ${id} status updated to: ${newStatus}`);
+                renderStaffTickets();
+            }
+        }
+
+        function deleteTicket(id) {
+            if(confirm('Are you sure you want to delete this ticket?')) {
+                tickets = tickets.filter(t => t.id !== id);
+                renderStaffTickets();
+            }
+        }
+    </script>
+</body>
+</html>
